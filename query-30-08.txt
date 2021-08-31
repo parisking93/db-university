@@ -44,10 +44,12 @@ Query con JOIN
 
 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
-    SELECT `course_teacher`.`teacher_id`,  `courses`.`name`, `courses`.`description`, `courses`.`period`
+    SELECT `course_teacher`.`teacher_id`, `teachers`.`name`, `teachers`.`surname`, `courses`.`name`, `courses`.`description`, `courses`.`period`
     FROM `courses`
     JOIN `course_teacher`
     ON `courses`.`id` = `course_teacher`.`course_id`
+    JOIN `teachers`
+    ON `teachers`.`id` = `course_teacher`.`teacher_id`
     WHERE `course_teacher`.`teacher_id` = 44
 
 4. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
